@@ -1,35 +1,29 @@
 # Image ↔ PDF Converter
 
-Windows 98 감성의 파스텔 카와이 UI로 만든 이미지 ↔ PDF 변환 데스크톱 툴입니다. 별도 서버나 온라인 업로드 없이 로컬에서 즉시 변환됩니다.
+이미지와 PDF를 양방향으로 변환하는 데스크톱 툴. 업로드 없이 로컬에서 처리한다. Windows 98 풍 파스텔 UI.
 
 ## 기능
 
-- **여러 이미지 → PDF 합치기**: PNG/JPG/JPEG/BMP/GIF 여러 장을 선택하면 파일명을 자연 정렬(`2.png` < `10.png`)해서 순서대로 이어붙인 PDF 한 장으로 저장합니다.
-- **PDF → PNG 분할**: PDF 파일을 페이지별로 300 DPI 고화질 PNG로 저장합니다.
-- 변환 작업은 별도 스레드에서 돌아가 UI가 멈추지 않고, 상태바에 진행 애니메이션이 표시됩니다.
+- **이미지 → PDF**: PNG·JPG·JPEG·BMP·GIF를 골라 한 장의 PDF로 이어붙인다.
+  파일명은 자연 정렬이라 `2.png`가 `10.png`보다 앞에 온다.
+- **PDF → PNG**: 페이지별로 300 DPI PNG로 저장한다.
 
-## 스크린샷
+변환은 별도 스레드에서 돌고, 진행 상황은 상태바에 표시된다.
 
-*(추가 예정)*
-
-## 실행 방법
+## 실행
 
 ```bash
 pip install pillow pymupdf
 python pdf.py
 ```
 
-## exe로 빌드하기
-
-PyInstaller로 아이콘 포함 단일 실행 파일을 만들 수 있습니다.
+## exe 빌드
 
 ```bash
 pip install pyinstaller
 pyinstaller --onefile --windowed --icon=app_icon.ico pdf.py
 ```
 
-## 기술 스택
+## 스택
 
-- Python 3 + Tkinter (GUI)
-- [Pillow](https://python-pillow.org/) — 이미지 → PDF 변환
-- [PyMuPDF (fitz)](https://pymupdf.readthedocs.io/) — PDF → PNG 렌더링
+Python 3 · Tkinter · [Pillow](https://python-pillow.org/)(이미지→PDF) · [PyMuPDF](https://pymupdf.readthedocs.io/)(PDF→PNG)
