@@ -37,12 +37,6 @@ STATUS_BG    = "#E0C8F0"   # 상태바 연보라
 CLOSEBTN_BG  = "#F098C8"   # X 버튼 핑크
 # ─────────────────────────────────────────────────────────────────
 
-def _raise_effect(widget, active_bg):
-    widget.config(relief="raised")
-
-def _sunken_effect(widget, active_bg):
-    widget.config(relief="sunken")
-
 def _bind_button_fx(btn):
     btn.bind("<ButtonPress-1>",   lambda e: btn.config(relief="sunken"))
     btn.bind("<ButtonRelease-1>", lambda e: btn.config(relief="raised"))
@@ -159,7 +153,6 @@ root.geometry("420x340")
 root.resizable(False, False)
 root.configure(bg=BG_DESKTOP)
 
-# 창 아이콘 설정
 try:
     root.iconbitmap(resource_path("app_icon.ico"))
 except Exception:
@@ -217,7 +210,7 @@ tk.Label(info_panel,
          font=("MS Sans Serif", 10, "bold"),
          pady=7).pack()
 
-# ── 버튼 1: 이미지 → PDF ─────────────────────────────────────────
+# ── 기능 버튼 ────────────────────────────────────────────────────
 def make_button(parent, text, command, bg, fg, active_bg, shadow):
     wrap = tk.Frame(parent, bg=shadow, bd=1)
     wrap.pack(fill="x", pady=6)
